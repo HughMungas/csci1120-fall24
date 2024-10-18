@@ -1,0 +1,82 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <cctype>
+
+std::string convertToPigLatin(const std::string& word) {
+    // Initialize variables
+    std::string pigLatinWord;
+    char punctuation = '\0';
+
+    // Check if the last character is punctuation
+    if (ispunct(word.back())) {
+        punctuation = word.back();
+    }
+
+    // Remove punctuation for processing
+    std::string cleanWord = word;
+    if (punctuation != '\0') {
+        cleanWord.pop_back(); // Remove the punctuation mark
+    }
+
+    // Determine if the first character is a vowel
+    if (cleanWord.length() > 0) {
+        char firstChar = cleanWord[0];
+        if (std::string("AEIOUaeiou").find(firstChar) != std::string::npos) {
+            // Word starts with a vowel
+            pigLatinWord = cleanWord + "hay";
+        } else {
+            // Word starts with a consonant
+            pigLatinWord = cleanWord.substr(1) + "-" + cleanWord[0] + "ay";
+        }
+    }
+
+    // Add back the punctuation if it exists
+    if (punctuation != '\0') {
+        pigLatinWord += punctuation;
+    }
+
+    return pigLatinWord;
+}
+
+void processText(const std::string& inputText) {
+    std::istringstream stream(inputText);
+    std::string word;
+    std::string pigLatinText;
+
+    // Process each word in the input text
+    while (stream >> word) {
+        pigLatinText += convertToPigLatin(word) + " ";
+    }
+
+    // Remove trailing space and write to file
+    if (!pigLatinText.empty()) {
+        pigLatinText.pop_back();
+    }
+
+    std::ofstream outputFile("Ch7_Ex3Out.txt");
+    if (outputFile.is_open()) {
+        outputFile << pigLatinText;
+        outputFile.close();
+        std::cout << "Output written to Ch7_Ex3Out.txt" << std::endl;
+    } else {
+        std::cerr << "Error opening output file." << std::endl;
+    }
+}
+
+int main() {
+    std::string inputText;
+
+    // Prompt user for input
+    std::cout << "Enter the text (end with an empty line):" << std::endl;
+    std::string line;
+    while (std::getline(std::cin, line) && !line.empty()) {
+        inputText += line + " ";
+    }
+
+    // Process the input text into Pig Latin
+    processText(inputText);
+
+    return 0;
+}
