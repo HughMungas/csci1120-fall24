@@ -1,0 +1,58 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+namespace royaltyRates {
+    const double OPTION1_INITIAL_PAYMENT = 5000.0;
+    const double OPTION1_PUBLICATION_PAYMENT = 20000.0;
+
+    const double OPTION2_ROYALTY_RATE = 0.125;
+
+    const int OPTION3_FIRST_LIMIT = 4000;
+    const double OPTION3_FIRST_ROYALTY_RATE = 0.10;
+    const double OPTION3_SECOND_ROYALTY_RATE = 0.14;
+}
+
+int main() {
+    double netPrice;
+    int estimatedSales;
+
+    cout << "Enter the net price of each copy of the novel: $";
+    cin >> netPrice;
+    cout << "Enter the estimated number of copies to be sold: ";
+    cin >> estimatedSales;
+
+    double royaltyOption1 = royaltyRates::OPTION1_INITIAL_PAYMENT + royaltyRates::OPTION1_PUBLICATION_PAYMENT;
+    
+    double royaltyOption2 = royaltyRates::OPTION2_ROYALTY_RATE * netPrice * estimatedSales;
+
+    double royaltyOption3;
+    if (estimatedSales <= royaltyRates::OPTION3_FIRST_LIMIT) {
+        royaltyOption3 = royaltyRates::OPTION3_FIRST_ROYALTY_RATE * netPrice * estimatedSales;
+    } else {
+        royaltyOption3 = royaltyRates::OPTION3_FIRST_ROYALTY_RATE * netPrice * royaltyRates::OPTION3_FIRST_LIMIT +
+                         royaltyRates::OPTION3_SECOND_ROYALTY_RATE * netPrice * (estimatedSales - royaltyRates::OPTION3_FIRST_LIMIT);
+    }
+
+    cout << fixed << setprecision(2);
+    cout << "Royalty option 1: $" << royaltyOption1 << endl;
+    cout << "Royalty option 2: $" << royaltyOption2 << endl;
+    cout << "Royalty option 3: $" << royaltyOption3 << endl;
+
+    double bestRoyalty = royaltyOption1;
+    string bestOption = "Option 1";
+
+    if (royaltyOption2 > bestRoyalty) {
+        bestRoyalty = royaltyOption2;
+        bestOption = "Option 2";
+    }
+    if (royaltyOption3 > bestRoyalty) {
+        bestRoyalty = royaltyOption3;
+        bestOption = "Option 3";
+    }
+
+    cout << "The best option for the author is: " << bestOption << " with royalties of $" << bestRoyalty << endl;
+
+    return 0;
+}
