@@ -1,0 +1,1 @@
+**Task #06:** `studentType`'s getter and setter for `programmingScore` member variable work as expected
