@@ -14,7 +14,9 @@ private:
     double GPA;
 
 public:
-    studentType();
+    studentType() {
+        
+    };
     studentType(string fn, string ln, char cg, int ts, int ps, double gpa)
     {
         firstName = fn;

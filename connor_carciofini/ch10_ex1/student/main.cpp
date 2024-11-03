@@ -8,11 +8,11 @@ using namespace std;
 
 int main()
 {
-    // studentType student;
+    studentType student;
     studentType newStudent("Brain", "Johnson", '*', 85, 95, 3.89);
 
-    // student.print();
-    // cout << "***************" << endl << endl;
+    student.print();
+    cout << "***************" << endl << endl;
 
     newStudent.setFirstName("Brian");
     newStudent.setLastName("Jones");
@@ -31,3 +31,4 @@ int main()
 
     return 0;
 }
+
