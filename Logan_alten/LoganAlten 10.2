@@ -1,0 +1,92 @@
+//Main 
+#include <iostream>
+#include "productType.h"
+#include <string> 
+using namespace std;
+
+int main() {
+    productType product ("Car", "Test", "Manufactorer", 12, 13000.00, 1000.00);
+    productType test1 ("Van", "ID", "Buick", 1, 5000.00, 2000.00);
+    product.print();
+    cout << "***************" << endl << endl; 
+    product.print();
+    cout << "***************" << endl << endl;
+
+    // Write your main here
+    return 0;
+}
+
+//ProductType.h
+#include <string> 
+#include <iostream>
+
+using namespace std;
+
+class productType                               
+{                                               
+public:                                           
+    productType(string product, string identification, string manu, 
+                int quantity, double cost, double deal){
+                    productName = product;
+                    id = identification;
+                    manufacturer = manu;
+                    quantitiesInStock = quantity;
+                    price = cost;
+                    discount = deal;
+                }  
+
+        void setProductName(string product){
+            productName = product;
+        }
+        string getProductName(){
+            return productName;
+        }
+        void setId(string identification){
+            id = identification; 
+        }
+        string getId(){
+            return id;
+        }
+        void setManufacturer(string manu){
+            manufacturer = manu;
+        }
+        string getManufacturer(){
+            return manufacturer;
+        }
+        void setQuantitiesInStock(int quantity){
+                quantitiesInStock = quantity;
+        }
+        int getQuantitiesInStock(){
+            return quantitiesInStock;
+        }
+        void setPrice(double cost) {
+            price = cost;
+        }
+        double getPrice(){
+            return price;
+        }
+        void setDiscount(double deal){
+            discount = deal;
+        }
+        double getDiscount(){
+            return discount;
+        }
+                  
+    void print() const{
+        cout << "Product Name: " << productName << endl;
+        cout << "ID: " << id << endl;
+        cout << "Manufacturer: " << manufacturer << endl;
+        cout << "Quantities in stock: " << quantitiesInStock << endl;
+        cout << "Price: " << price << endl;
+        cout << "Discount " << discount << endl;
+        cout << "New price: " << price - discount << endl;
+    };                         
+
+private:                                        
+    string productName;                         
+    string id;                                  
+    string manufacturer;                        
+    int quantitiesInStock;                      
+    double price;                               
+    double discount;                            
+};                                              
