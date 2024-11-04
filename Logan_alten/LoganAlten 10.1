@@ -1,0 +1,92 @@
+//Main program
+   
+#include <iostream>
+#include <string>
+#include "studentType.h"
+
+using namespace std;
+
+int main()
+{
+    studentType student("Sara", "Spilner", 'A', 89, 92, 3.57);
+    studentType newStudent("Brain", "Johnson", '*', 85, 95, 3.89);
+
+    student.print();
+    cout << "***************" << endl << endl;
+
+    newStudent.print();
+    cout << "***************" << endl << endl;
+
+    return 0;
+}
+   
+   //studentType.h
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class studentType{
+string firstName;
+string lastName;
+char grade;
+int testScore;
+int programScore;
+double gpa;
+
+public:
+studentType(string fn, string ln, char gra, int ts, int ps, double gp){
+    firstName = fn;
+    lastName = ln;
+    grade = gra;
+    testScore = ts;
+    programScore = ps;
+    gpa = gp;
+}
+
+void setfirstName(string fn){
+    firstName = fn;
+}
+string getfirstName (){
+    return firstName;
+}
+
+void setlastName(string ln){
+    lastName = ln;
+}
+string getlastName(){
+    return lastName;
+}
+void setGrade(char gra){
+    grade = gra;
+}
+char getGrade(){
+    return grade;
+}
+void setTestScore(int ts){
+    testScore = ts;
+}
+int getTestScore(){
+    return testScore;
+}
+void setProgScore(int ps){
+    programScore = ps;
+}
+int getProgScore(){
+    return programScore;
+}
+void setGPA(double gp){
+    gpa = gp;
+}
+double getGPA(){
+    return gpa;
+}
+
+void print() {
+    cout << "Name: " << firstName << " " << lastName << endl;
+    cout << "Grade: " << grade << endl;
+    cout << "Test score: " << testScore << endl;
+    cout << "Programming score: " << programScore << endl;
+    cout << "GPA " << gpa << endl;
+}
+};
