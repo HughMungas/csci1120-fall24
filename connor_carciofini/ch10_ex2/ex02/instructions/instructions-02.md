@@ -1,1 +1,0 @@
-**Task #02:** `productType`'s getter and setter for `price` work as expected

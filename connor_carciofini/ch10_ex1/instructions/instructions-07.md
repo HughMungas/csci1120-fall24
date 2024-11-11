@@ -1,1 +1,0 @@
-**Task #07:** `studentType`'s getter and setter for `GPA` member variable work as expected

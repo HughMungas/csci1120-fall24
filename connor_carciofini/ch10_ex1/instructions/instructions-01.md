@@ -1,1 +1,0 @@
-**Task #01:** The program is able to initialize objects of type `studentType` without error

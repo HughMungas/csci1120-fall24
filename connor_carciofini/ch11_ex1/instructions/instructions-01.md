@@ -1,1 +1,0 @@
-**Task #01:** The `extClockType` class includes a private member variable `timeZone`

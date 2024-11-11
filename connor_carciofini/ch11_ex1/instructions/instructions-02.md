@@ -1,1 +1,0 @@
-**Task #02:** The program can initialize objects of the type `extClockType` without error

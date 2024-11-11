@@ -1,1 +1,0 @@
-**Task #04:** `studentType`'s getter and setter for `courseGrade` member variable work as expected

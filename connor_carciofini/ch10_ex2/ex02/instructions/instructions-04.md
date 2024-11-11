@@ -1,1 +1,0 @@
-**Task #04:** `productType`'s getter, setter, and updater for `quantitiesInStock` work as expected

@@ -1,1 +1,0 @@
-**Task #01:** The program can initialize objects of type `productType` without error
