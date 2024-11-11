@@ -1,0 +1,76 @@
+//main
+#include <iostream>
+#include "dateType.h"
+
+using namespace std;
+
+int main() {
+    int day, month, year;
+    cout << "enter the day (month day year)";
+    cin >> month >> day >> year;
+  dateType day1(month, day, year);
+    cout << "enter another day (month day year)";
+       cin >> month >> day >> year;
+       dateType day2(month, day, year);
+        cout << "enter another day (month day year)";
+       cin >> month >> day >> year;
+       dateType day3(month, day, year);
+       cout << "Date 1: ";
+    day1.printDate();
+        cout << "Date 2: ";
+    day2.printDate();
+        cout << "Date 3: ";
+    day3.printDate();
+    return 0;
+}
+//source
+#include "dateType.h"
+
+
+dateType::dateType(int month, int day, int year) {
+    setDate(month, day, year);
+}
+
+void dateType::setDate(int month, int day, int year) {
+    if (month >= 1 && month <= 12) {
+        dMonth = month;
+    }
+    if (day >= 1 && day <= 31) {  
+        dDay = day;
+    }
+    if (year >= 1) {
+        dYear = year;
+    }
+}
+
+int dateType::getDay() const {
+    return dDay;
+}
+
+int dateType::getMonth() const {
+    return dMonth;
+}
+
+int dateType::getYear() const {
+    return dYear;
+}
+
+void dateType::printDate() const {
+    cout << dMonth << "-"
+         << dDay << "-"
+         << dYear << endl;
+
+    if (isLeapYear()) {
+        cout << "This is a leap year" << endl;
+    }else{
+        cout << "This is not a leap year" << endl;
+    }
+}
+
+
+bool dateType::isLeapYear() const {
+    if ((dYear % 4 == 0 && dYear % 100 != 0) || (dYear % 400 == 0)) {
+        return true;
+    }
+    return false;
+}
