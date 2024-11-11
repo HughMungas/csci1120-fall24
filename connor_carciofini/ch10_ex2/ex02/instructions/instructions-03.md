@@ -1,0 +1,1 @@
+**Task #03:** `productType`'s getter and setter for `discount` work as expected

@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string input;
+    int total;
+
+    cout << "Enter a string. ";
+    getline (cin, input);
+
+    for (char ch : input){
+        total += static_cast<int>(ch);
+    }
+    cout << "The sum of the characters is: " << total;
+    // Write your main here
+    return 0;
+}

@@ -1,0 +1,76 @@
+//main 
+#include <iostream>
+#include "houseType.h"
+
+using namespace std;
+
+int main() {
+houseType test("Family home", 5, 3, 2, 2000, 2000, 200000, 1400);
+houseType test2("mobile home", 2, 1, 0, 1999, 1000, 100000, 1500);
+test.print();
+test2.print();
+
+    // Write your main here
+    return 0;
+}
+
+
+//houseType.h
+#include <string>
+#include <iostream>
+using namespace std;
+
+class houseType
+{
+public:
+    void set(string, int, int, int, int, int, double, double); 
+    void print() const{
+        cout << "Style: " << style << endl;
+        cout << "Number of bedrooms: " << numOfBedrooms << endl;
+        cout << "Number of bathrooms: " << numOfBathrooms << endl;
+        cout << "Number of cars in the garage: " << numOfCarsGarage << endl;
+        cout << "Finished square footage: " << finishedSquareFootage << endl;
+        cout << "Price: " << price << endl;
+        cout << "Tax: " << tax << endl;
+
+    }
+    void setStyle(string type);
+    string getStyle() const; 
+    void setNumOfBedrooms(int bedrooms);
+    int getNumOfBedrooms() const; 
+    void setNumOfBathrooms(int bathrooms);
+    int getNumOfBathrooms() const; 
+    void setNumOfCarsGarage(int cars);
+    int getNumOfCarsGarage() const; 
+    void setYearBuilt(int year);
+    int getYearBuilt() const; 
+    void setFinishedSquareFootage(int squareft);
+    int getFinishedSquareFootage() const; 
+    void setPrice(double cost);
+    double getPrice() const; 
+    void setTax(double tx);
+    double getTax() const; 
+
+    houseType(string type, int bedrooms, int bathrooms, int cars, int year, 
+              int squareft, double cost, double tx){
+                style = type;
+                numOfBedrooms = bedrooms;
+                numOfBathrooms = bathrooms;
+                numOfCarsGarage = cars;
+                yearBuilt = year;
+                finishedSquareFootage = squareft;
+                price = cost;
+                tax = tx;
+              }
+private:
+
+    string style;
+    int numOfBedrooms;
+    int numOfBathrooms;
+    int numOfCarsGarage;
+    int yearBuilt;
+    int finishedSquareFootage;
+    double price;
+    double tax;
+};
+
