@@ -6,6 +6,8 @@
 
 using namespace std;
 
+// This exercise doesn't seem to have a test suite so calculating grade or submitting doesn't work
+
 int main() {
     string inputLine;
     int num, minValue;
