@@ -1,0 +1,50 @@
+//not sure what order the system is trying to have everything input in. 
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    
+    int numberCandidates;
+        cout << "Enter total candidates: ";
+        cin >> numberCandidates;
+    string* candidates;
+    int* votes;
+    int totalvotes =0;
+    candidates = new string[numberCandidates];
+    votes = new int[numberCandidates];
+
+    for (int i = 0; i <numberCandidates; i++){
+            cout << "Enter the last name of the candidate: ";
+        cin >> candidates[i];
+            cout << "enter the number of votes for the candidate: ";
+        cin >> votes[i];
+         totalvotes = totalvotes + votes[i];
+    }
+        cout << totalvotes;
+        cout << endl;
+    cout << "Election Results:" << endl;
+    cout << "---------------------------------------------" << endl;
+    cout << left << setw(20) << "Candidate Name" << setw(15) << "Votes" << setw(20) << "Percentage" << endl;
+    cout << "---------------------------------------------" << endl;
+    int winningVotes = votes[0];
+    string winner = candidates[0];
+        for (int i = 0; i < numberCandidates; i++) {
+        double percentage = static_cast<double>(votes[i]) / totalvotes * 100;
+        cout << left << setw(20) << candidates[i] << setw(15) << votes[i] << setw(20) << fixed << setprecision(2) << percentage << "%" << endl;
+
+
+        if (votes[i] > winningVotes) {
+            winningVotes = votes[i];
+            winner = candidates[i];
+        }
+    }
+            cout << left << setw(20) << "Total " << setw(15) << totalvotes;
+            cout << endl;
+    cout << "The winner of the election is " << winner << " with " << winningVotes << " votes!";
+    // Write your main here
+    return 0;
+}
